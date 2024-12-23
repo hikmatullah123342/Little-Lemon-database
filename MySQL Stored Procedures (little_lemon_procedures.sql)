@@ -1,0 +1,28 @@
+DELIMITER $$
+
+-- GetMaxQuantity procedure
+CREATE PROCEDURE GetMaxQuantity()
+BEGIN
+    SELECT MAX(quantity) AS max_quantity FROM bookings;
+END $$
+
+-- AddBooking procedure
+CREATE PROCEDURE AddBooking(
+    IN b_date DATE, IN b_ref VARCHAR(20), IN c_name VARCHAR(100), IN c_city VARCHAR(100), IN c_country VARCHAR(100),
+    IN c_phone VARCHAR(20), IN c_code VARCHAR(2), IN price DECIMAL(10, 2), IN total DECIMAL(10, 2), IN qty INT,
+    IN disc DECIMAL(10, 2), IN final DECIMAL(10, 2), IN starter VARCHAR(100), IN main VARCHAR(100), IN dessert VARCHAR(100),
+    IN drink VARCHAR(100), IN wine VARCHAR(100), IN side VARCHAR(100)
+)
+BEGIN
+    INSERT INTO bookings (booking_date, booking_reference, customer_name, city, country, phone_number, country_code,
+                          price, total_price, quantity, discount, final_price, starter, main_course, dessert, drink, wine_type, side_dish)
+    VALUES (b_date, b_ref, c_name, c_city, c_country, c_phone, c_code, price, total, qty, disc, final, starter, main, dessert, drink, wine, side);
+END $$
+
+-- CancelBooking procedure
+CREATE PROCEDURE CancelBooking(IN b_ref VARCHAR(20))
+BEGIN
+    DELETE FROM bookings WHERE booking_reference = b_ref;
+END $$
+
+DELIMITER ;
