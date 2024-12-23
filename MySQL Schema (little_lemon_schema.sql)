@@ -1,0 +1,33 @@
+-- Create the database
+CREATE DATABASE little_lemon;
+
+USE little_lemon;
+
+-- Create the bookings table
+CREATE TABLE bookings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    booking_date DATE,
+    booking_reference VARCHAR(20),
+    customer_name VARCHAR(100),
+    city VARCHAR(100),
+    country VARCHAR(100),
+    phone_number VARCHAR(20),
+    country_code VARCHAR(2),
+    price DECIMAL(10, 2),
+    total_price DECIMAL(10, 2),
+    quantity INT,
+    discount DECIMAL(10, 2),
+    final_price DECIMAL(10, 2),
+    starter VARCHAR(100),
+    main_course VARCHAR(100),
+    dessert VARCHAR(100),
+    drink VARCHAR(100),
+    wine_type VARCHAR(100),
+    side_dish VARCHAR(100)
+);
+
+-- Insert sample data into the bookings table
+INSERT INTO bookings (booking_date, booking_reference, customer_name, city, country, phone_number, country_code, price, total_price, quantity, discount, final_price, starter, main_course, dessert, drink, wine_type, side_dish)
+VALUES
+('2020-06-11', '07-575-4456', 'Godfrey Jellicorse', 'Vazhiny', 'Russia', '993-1265', 'RU', 91.84, 137.76, 3, 67.77, 99.07, 'Greek salad', 'Italian', 'Tomato bread', 'Greek yoghurt', 'Athens White wine', 'Tapas'),
+('2019-10-20', '99-435-3448', 'Ives Darmody', 'Jiangkou', 'China', '1103323434', 'CN', 133.17, 199.755, 3, 35.44, 76.95, 'Bean soup', 'Turkish', 'Falafel', 'Ice cream', 'Corfu Red Wine', 'Potato salad');
